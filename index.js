@@ -22,6 +22,15 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send(
+    `<h2>🚀 Welcome to the School API!</h2>
+    <p>✅ For testing the API endpoints, please use <strong>Postman</strong> or a similar API client.</p>
+    <p>🔹 Only <code>GET</code> requests like <code>/api/v1/listSchools?latitude=lat&longitude=lon</code> can be tested directly in the browser. And lat and lon will be in numeric format.</p>
+    <p>🔹 For <code>POST</code> requests like <code>/api/v1/addSchool</code>, use Postman workspace link that is being attached with the assignment docs for the best experience.</p>`
+  );
+});
+
 app.use("/api/v1/", schoolRoutes);
 
 app.use((err, req, res, next) => {
